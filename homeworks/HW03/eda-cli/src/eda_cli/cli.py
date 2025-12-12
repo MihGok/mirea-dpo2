@@ -56,9 +56,8 @@ def overview(
 
     typer.echo(f"Строк: {summary.n_rows}")
     typer.echo(f"Столбцов: {summary.n_cols}")
-    typer.echo(f"Доля нулей в данных: {summary.zero_share}")
+    typer.echo(f"Доля нулей в данных: {summary.global_zero_share}")
     typer.echo("\nКолонки:")
-    typer.echo(f"Доля нулей в данных{summary.zero_share}")
     typer.echo(summary_df.to_string(index=False))
 
 

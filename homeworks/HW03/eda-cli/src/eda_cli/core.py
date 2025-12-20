@@ -27,6 +27,8 @@ class ColumnSummary:
     mean: Optional[float] = None
     std: Optional[float] = None
     
+    #Новые эвристики
+    
     # Статистики нулей
     zero_count: int = 0
     zero_share: float = 0.0
@@ -135,6 +137,7 @@ def summarize_dataset(
                 max=max_val,
                 mean=mean_val,
                 std=std_val,
+                #Добавленные поля для данных о колонках
                 zero_count=col_zero_count,
                 zero_share=col_zero_share,
                 is_constant=is_constant,
@@ -178,20 +181,16 @@ def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> 
     #Нули
     flags["excessive_zeros"] = summary.excessive_zeros
 
-    # --- НОВЫЕ ЭВРИСТИКИ ---
 
-    #Константные колонки (не несут информации)
+    # --- НОВЫЕ ЭВРИСТИКИ ---
     constant_cols = [c.name for c in summary.columns if c.is_constant]
     flags["has_constant_columns"] = len(constant_cols) > 0
     flags["constant_columns_list"] = constant_cols
-
-    #Даты из будущего
     future_date_cols = [c.name for c in summary.columns if c.future_date_count > 0]
     flags["has_future_dates"] = len(future_date_cols) > 0
     flags["future_dates_columns"] = future_date_cols
 
     #Подозрительные дубликаты ID
-    # Логика: если колонка называется как ID, но unique < non_null, значит есть дубликаты
     suspicious_ids = []
     for c in summary.columns:
         name_lower = c.name.lower()
@@ -213,6 +212,7 @@ def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> 
     if summary.excessive_zeros:
         score -= 0.1
         
+    # Штрафы за новые эвристики добавленные по заданию
     if flags["has_constant_columns"]:
         score -= 0.1  # Штраф за наличие "мусорных" колонок
         

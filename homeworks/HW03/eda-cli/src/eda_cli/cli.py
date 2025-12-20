@@ -117,10 +117,12 @@ def report(
         f.write(f"- Слишком много колонок: **{quality_flags['too_many_columns']}**\n")
         f.write(f"- Слишком много пропусков: **{quality_flags['too_many_missing']}**\n")
 
-        # Новые эвристики
+        # Добавленные в отчет новые эвристики
         f.write(f"- Избыток нулей: **{quality_flags['excessive_zeros']}**\n")
         f.write(f"- Есть константные колонки: **{quality_flags['has_constant_columns']}**\n")
         f.write(f"- Даты из будущего: **{quality_flags['has_future_dates']}**\n\n")
+        # Конец новых эвристик
+
 
         f.write("## Колонки\n\n")
         f.write("См. файл `summary.csv`.\n\n")

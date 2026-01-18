@@ -1,0 +1,24 @@
+{
+  "dataset_1": {
+    "best_model": "DBSCAN",
+    "criterion": "Выбрана DBSCAN, потому что она даёт существенно более высокий silhouette (0.721) по сравнению с KMeans — это означает более компактные и разделённые кластеры в данном датасете.",
+    "initial_params": {
+      "eps": 0.5,
+      "min_samples": 8
+    }
+  },
+  "dataset_2": {
+    "best_model": "KMeans",
+    "criterion": "KMeans по причине лучего взуального качества разбиени на кластеры, вопреки низким метрикам (silhouette 0.126 против 0.174 у DBSCAN).",
+    "initial_params": {
+      "k": 10
+    }
+  },
+  "dataset_3": {
+    "best_model": "KMeans",
+    "criterion": "KMeans выбран по наибольшему silhouette (0.335) — в отличие от DBSCAN, KMeans даёт положительную и заметную силу кластеризации для этого датасета.",
+    "initial_params": {
+      "k": 4
+    }
+  }
+}

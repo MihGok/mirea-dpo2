@@ -1,0 +1,50 @@
+{
+    "dataset_1" : {
+        "kmeans": {
+            "inertia": 1282.63,
+            "silhouette": 0.2843556008772226,
+            "calinski_harabasz": 5453.960303449328,
+            "davies_bouldin": 1.6822021166601737
+        },
+        "dbscan": {
+                "n_clusters": 4,
+                "n_noise": 322,
+                "noise_share": 0.026833333333333334,
+                "silhouette": 0.7212124993378766,
+                "calinski_harabasz": 129169.8168301153,
+                "davies_bouldin": 0.3486801034700521
+        }
+    },
+    "dataset_2" : {
+        "kmeans": {
+            "inertia": 2413.72,
+            "silhouette": 0.12628719497888555,
+            "calinski_harabasz": 932.264506388584,
+            "davies_bouldin": 1.869849906370479
+        },
+        "dbscan": {
+            "n_clusters": 3,
+            "n_noise": 347,
+            "noise_share": 0.043375,
+            "silhouette": 0.17456997702715385,
+            "calinski_harabasz": 31.516883331379862,
+            "davies_bouldin": 0.5330575911757395
+        }
+    },
+    "dataset_3" : {
+        "kmeans": {
+            "inertia": 7998.9,
+            "silhouette": 0.33519139123048636,
+            "calinski_harabasz": 7168.213274189978,
+            "davies_bouldin": 1.2031394296825058
+        },
+        "dbscan": {
+            "n_clusters": 7,
+            "n_noise": 187,
+            "noise_share": 0.012466666666666666,
+            "silhouette": -0.09117760843501711,
+            "calinski_harabasz": 480.32449529314545,
+            "davies_bouldin": 0.8651652699165207
+        }
+    }
+}
